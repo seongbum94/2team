@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMapConfig
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map Config 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-config-2.dtd">
+<sqlMapConfig>
+
+	<properties resource="db.properties"/>
+	
+	<settings cacheModelsEnabled="true" enhancementEnabled="true"
+			  lazyLoadingEnabled="true" maxRequests="32"
+			  maxSessions="10" maxTransactions="5"
+			  useStatementNamespaces="true"/>
+
+ 	<typeAlias alias = "admVO" type = "ysit.vo.AdminVO"/>
+ 	<typeAlias alias = "applyVO" type = "ysit.vo.ApplyVO"/>
+ 	<typeAlias alias = "attendVO" type = "ysit.vo.AttendVO"/>
+ 	<typeAlias alias = "counselVO" type = "ysit.vo.CounselVO"/>
+ 	<typeAlias alias = "empVO" type = "ysit.vo.EmpVO"/>
+ 	<typeAlias alias = "enclassVO" type = "ysit.vo.EnClassVO"/>
+ 	<typeAlias alias = "evalVO" type = "ysit.vo.EvaluationVO"/>
+ 	<typeAlias alias = "graVO" type = "ysit.vo.GradeVO"/>
+ 	<typeAlias alias = "LTVO" type = "ysit.vo.LectureTimeVO"/>
+ 	<typeAlias alias = "majorVO" type = "ysit.vo.MajorVO"/>
+ 	<typeAlias alias = "noticeVO" type = "ysit.vo.NoticeVO"/>
+ 	<typeAlias alias = "openingVO" type = "ysit.vo.OpeningSubjectVO"/>
+ 	<typeAlias alias = "proVO" type = "ysit.vo.ProfessorVO"/>
+ 	<typeAlias alias = "scheduleVO" type = "ysit.vo.ScheduleVO"/>
+ 	<typeAlias alias = "schorlarVO" type = "ysit.vo.SchorlarshipVO"/>
+ 	<typeAlias alias = "stuVO" type = "ysit.vo.StudentVO"/>
+ 	<typeAlias alias = "subVO" type = "ysit.vo.SubjectVO"/>
+ 	<typeAlias alias = "tuitVO" type = "ysit.vo.TuitionVO"/>
+ 	
+
+	<transactionManager type="JDBC">
+		<dataSource type="SIMPLE">
+			<property name="JDBC.Driver" value="${driver}"/>
+			<property name="JDBC.ConnectionURL" value="${url}"/>
+			<property name="JDBC.Username" value="${user}"/>
+			<property name="JDBC.Password" value="${pass}"/>
+		</dataSource>
+	</transactionManager>
+
+	<sqlMap resource="ysit/admin/apply/ibatis/applyIbatis.xml"/>
+	<sqlMap resource="ysit/admin/csubject/ibatis/csubjectIbatis.xml"/>
+	<sqlMap resource="ysit/admin/emp/ibatis/empIbatis.xml"/>
+	<sqlMap resource="ysit/admin/mprofessor/ibatis/mprofessorIbatis.xml"/>
+	<sqlMap resource="ysit/admin/mstudent/ibatis/mstudentIbatis.xml"/>
+	<sqlMap resource="ysit/admin/notice/ibatis/noticeIbatis.xml"/>
+	<sqlMap resource="ysit/admin/schedule/ibatis/scheduleIbatis.xml"/>
+	<sqlMap resource="ysit/admin/tuition/ibatis/tuitionIbatis.xml"/>
+	<sqlMap resource="ysit/professor/attend/ibatis/attendIbatis.xml"/>
+	<sqlMap resource="ysit/professor/counsel/ibatis/counselIbatis.xml"/>
+	<sqlMap resource="ysit/professor/emp/ibatis/empIbatis.xml"/>
+	<sqlMap resource="ysit/professor/evaluation/ibatis/evaluationIbatis.xml"/>
+	<sqlMap resource="ysit/professor/mstudent/ibatis/mstudentIbatis.xml"/>
+	<sqlMap resource="ysit/professor/notice/ibatis/noticeIbatis.xml"/>
+	<sqlMap resource="ysit/professor/schedule/ibatis/scheduleIbatis.xml"/>
+	<sqlMap resource="ysit/professor/subject/ibatis/subjectIbatis.xml"/>
+	<sqlMap resource="ysit/student/counsel/ibatis/counselIbatis.xml"/>
+	<sqlMap resource="ysit/student/emp/ibatis/empIbatis.xml"/>
+	<sqlMap resource="ysit/student/grade/ibatis/gradeIbatis.xml"/>
+	<sqlMap resource="ysit/student/mschool/ibatis/mschoolIbatis.xml"/>
+	<sqlMap resource="ysit/student/notice/ibatis/noticeIbatis.xml"/>
+	<sqlMap resource="ysit/student/subject/ibatis/subjectIbatis.xml"/>
+	<sqlMap resource="ysit/student/tuition/ibatis/tuitionIbatis.xml"/>
+	<sqlMap resource="ysit/com/login//ibatis/loginIbatis.xml"/>
+
+</sqlMapConfig>

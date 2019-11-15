@@ -1,0 +1,12 @@
+package ysit.student.notice.dao;
+
+public class NoticeDAOImpl implements INoticeDAO{
+	private static NoticeDAOImpl dao;
+	private NoticeDAOImpl() {}
+	
+	public static NoticeDAOImpl getInstance() {
+		if(dao == null)
+			dao = new NoticeDAOImpl();
+		return dao;
+	}
+}

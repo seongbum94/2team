@@ -1,0 +1,5 @@
+package ysit.admin.mprofessor.service;
+
+public interface IMProfessorService {
+
+}

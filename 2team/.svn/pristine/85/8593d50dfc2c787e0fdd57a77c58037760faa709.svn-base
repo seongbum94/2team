@@ -1,0 +1,5 @@
+package ysit.student.emp.service;
+
+public interface IEmpService {
+
+}

@@ -1,0 +1,58 @@
+package ysit.admin.notice.controller;
+
+import java.net.URL;
+import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
+
+public class AdminAddNoticeController {
+	
+
+    @FXML
+    private ResourceBundle resources;
+
+    @FXML
+    private URL location;
+
+    @FXML
+    private TextField textFildTitle;
+
+    @FXML
+    private Button fileSearch;
+
+    @FXML
+    private TextArea noticeAdd;
+
+    @FXML
+    private Button btnWrite;
+
+    @FXML
+    private Button btnUpdate;
+
+    @FXML
+    void insertTitle(ActionEvent event) {
+
+    }
+
+    @FXML
+    void onClickedUpdate(ActionEvent event) {
+
+    }
+
+    @FXML
+    void onClickedWrite(ActionEvent event) {
+
+    }
+
+    @FXML
+    void initialize() {
+    	
+    	
+    	
+    	
+    	
+    }
+}

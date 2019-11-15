@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="adminMain" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="751.0" prefWidth="1033.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ysit.admin.mainPage.controller.AdmMainPageController">
+   <left>
+      <Accordion BorderPane.alignment="CENTER">
+        <panes>
+          <TitledPane fx:id="adminNotice" animated="false" prefHeight="504.0" prefWidth="202.0" text="공지사항">
+               <content>
+                  <VBox prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Label fx:id="adminNotice" alignment="CENTER" prefHeight="15.0" prefWidth="193.0" text="공지사항게시판" />
+                        <Label fx:id="adminEmp" alignment="CENTER" prefHeight="15.0" prefWidth="199.0" text="취업정보게시판">
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
+                        </Label>
+                     </children>
+                  </VBox>
+               </content>
+          </TitledPane>
+          <TitledPane fx:id="adminSubject" animated="false" text="수강편람관리">
+               <content>
+                  <VBox prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Label fx:id="adminAddSub" alignment="CENTER" prefHeight="15.0" prefWidth="187.0" text="강의 개설" />
+                        <Label fx:id="adminDelSub" alignment="CENTER" prefHeight="15.0" prefWidth="193.0" text="강의 폐강">
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label fx:id="adminSearchSub" alignment="CENTER" prefHeight="15.0" prefWidth="195.0" text="개설과목 조회">
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
+                        </Label>
+                     </children>
+                  </VBox>
+               </content>
+          </TitledPane>
+          <TitledPane fx:id="adminPro" animated="false" text="교수관리">
+               <content>
+                  <VBox prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Label fx:id="adminAddPro" alignment="CENTER" prefHeight="15.0" prefWidth="222.0" text="교수 등록" />
+                     </children>
+                  </VBox>
+               </content>
+          </TitledPane>
+            <TitledPane fx:id="adminStu" animated="false" text="학생관리">
+               <content>
+                  <VBox prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Label fx:id="adminStuInf" alignment="CENTER" prefHeight="15.0" prefWidth="202.0" text="학적 정보" />
+                        <Label fx:id="adminStuGrade" alignment="CENTER" prefHeight="15.0" prefWidth="188.0" text="성적 정보">
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label fx:id="adminStuA" alignment="CENTER" prefHeight="15.0" prefWidth="197.0" text="학점 관리">
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
+                        </Label>
+                     </children>
+                  </VBox>
+               </content>
+            </TitledPane>
+            <TitledPane fx:id="adminStuState" prefHeight="200.0" prefWidth="200.0" text="재적상태관리">
+               <content>
+                  <VBox prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Label fx:id="adminRest" alignment="CENTER" prefHeight="15.0" prefWidth="196.0" text="휴학신청 관리" />
+                        <Label fx:id="adminComeBack" alignment="CENTER" prefHeight="15.0" prefWidth="204.0" text="복학신청 관리">
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label fx:id="adminLeave" alignment="CENTER" prefHeight="15.0" prefWidth="205.0" text="자퇴신청 관리">
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
+                        </Label>
+                     </children>
+                  </VBox>
+               </content>
+            </TitledPane>
+            <TitledPane fx:id="adminSch" animated="false" text="학사일정관리">
+               <content>
+                  <VBox prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Label fx:id="adminSch" alignment="CENTER" prefHeight="15.0" prefWidth="204.0" text="학사 일정 관리">
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </Label>
+                     </children>
+                  </VBox>
+               </content>
+            </TitledPane>
+            <TitledPane fx:id="adminTuit" prefHeight="200.0" prefWidth="200.0" text="등록금 관리">
+               <content>
+                  <VBox prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Label fx:id="adminTuitOk" alignment="CENTER" prefHeight="15.0" prefWidth="199.0" text="등록금 납부 관리" />
+                        <Label fx:id="adminTuitNo" alignment="CENTER" prefHeight="15.0" prefWidth="196.0" text="등록금 미납 관리">
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
+                        </Label>
+                     </children>
+                  </VBox>
+               </content>
+            </TitledPane>
+        </panes>
+      </Accordion>
+   </left>
+   <right>
+      <VBox prefHeight="751.0" prefWidth="417.0" spacing="10.0" BorderPane.alignment="CENTER">
+         <padding>
+            <Insets left="10.0" right="10.0" top="10.0" />
+         </padding>
+         <children>
+            <Label text="강의현황">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Label>
+            <ListView fx:id="classSts" prefHeight="200.0" prefWidth="200.0">
+               <VBox.margin>
+                  <Insets right="5.0" />
+               </VBox.margin>
+            </ListView>
+            <Label text="공지사항">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Label>
+            <ListView fx:id="noticePage" prefHeight="200.0" prefWidth="200.0">
+               <VBox.margin>
+                  <Insets right="5.0" />
+               </VBox.margin>
+            </ListView>
+         </children>
+      </VBox>
+   </right>
+   <center>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0">
+               <children>
+                  <VBox prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Label text="개인정보">
+                           <font>
+                              <Font size="21.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Label text="이 름   ">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </Label>
+                        <TextField fx:id="txtName" editable="false">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </TextField>
+                     </children>
+                     <VBox.margin>
+                        <Insets left="20.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Label fx:id="txtAdmId" text="사 번   " />
+                        <TextField fx:id="txt" editable="false" />
+                     </children>
+                     <VBox.margin>
+                        <Insets left="20.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <Label text="학사일정">
+                     <font>
+                        <Font size="21.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="72.0" />
+                     </VBox.margin>
+                  </Label>
+                  <ImageView fitHeight="281.0" fitWidth="358.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@KakaoTalk_20191106_191901798.png" />
+                     </image>
+                  </ImageView>
+               </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+               <padding>
+                  <Insets left="20.0" top="10.0" />
+               </padding>
+            </VBox>
+         </children>
+      </VBox>
+   </center>
+   <top>
+      <HBox alignment="CENTER_RIGHT" prefHeight="99.0" prefWidth="397.0" BorderPane.alignment="CENTER_RIGHT">
+         <children>
+            <ImageView fitHeight="115.0" fitWidth="193.0" pickOnBounds="true" preserveRatio="true">
+               <HBox.margin>
+                  <Insets left="30.0" right="690.0" />
+               </HBox.margin>
+               <image>
+                  <Image url="@../../../../../images/학교.png" />
+               </image>
+            </ImageView>
+            <VBox prefHeight="117.0" prefWidth="238.0" spacing="10.0">
+               <children>
+                  <Label fx:id="opening" text="님 환영합니다." />
+                  <Label fx:id="loginLabel" text="(으)로 로그인 하셨습니다." />
+                  <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Button fx:id="btnLogOut" mnemonicParsing="false" onAction="#logOutOnClick" text="로그아웃" />
+                     </children>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <padding>
+                        <Insets right="20.0" />
+                     </padding>
+                  </HBox>
+               </children>
+               <padding>
+                  <Insets bottom="10.0" top="20.0" />
+               </padding>
+            </VBox>
+         </children>
+      </HBox>
+   </top>
+</BorderPane>

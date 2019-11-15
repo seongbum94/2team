@@ -1,0 +1,5 @@
+package ysit.vo;
+
+public class LoginVO {
+	
+}

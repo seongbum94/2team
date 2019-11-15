@@ -1,0 +1,118 @@
+package ysit.admin.mainPage.controller;
+
+import java.net.URL;
+import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
+import javafx.scene.control.TitledPane;
+import javafx.scene.layout.BorderPane;
+
+public class AdmMainPageController {
+
+    @FXML
+    private ResourceBundle resources;
+
+    @FXML
+    private URL location;
+
+    @FXML
+    private BorderPane adminMain;
+
+    @FXML
+    private Label adminNotice;
+
+    @FXML
+    private Label adminEmp;
+
+    @FXML
+    private TitledPane adminSubject;
+
+    @FXML
+    private Label adminAddSub;
+
+    @FXML
+    private Label adminDelSub;
+
+    @FXML
+    private Label adminSearchSub;
+
+    @FXML
+    private TitledPane adminPro;
+
+    @FXML
+    private Label adminAddPro;
+
+    @FXML
+    private TitledPane adminStu;
+
+    @FXML
+    private Label adminStuInf;
+
+    @FXML
+    private Label adminStuGrade;
+
+    @FXML
+    private Label adminStuA;
+
+    @FXML
+    private TitledPane adminStuState;
+
+    @FXML
+    private Label adminRest;
+
+    @FXML
+    private Label adminComeBack;
+
+    @FXML
+    private Label adminLeave;
+
+    @FXML
+    private Label adminSch;
+
+    @FXML
+    private TitledPane adminTuit;
+
+    @FXML
+    private Label adminTuitOk;
+
+    @FXML
+    private Label adminTuitNo;
+
+    @FXML
+    private ListView<?> classSts;
+
+    @FXML
+    private ListView<?> noticePage;
+
+    @FXML
+    private TextField txtName;
+
+    @FXML
+    private Label txtAdmId;
+
+    @FXML
+    private TextField txt;
+
+    @FXML
+    private Label opening;
+
+    @FXML
+    private Label loginLabel;
+
+    @FXML
+    private Button btnLogOut;
+
+    @FXML
+    void logOutOnClick(ActionEvent event) {
+
+    }
+
+    @FXML
+    void initialize() {
+
+    }
+}

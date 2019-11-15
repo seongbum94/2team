@@ -1,0 +1,5 @@
+package ysit.student.emp.dao;
+
+public interface IEmpDao {
+
+}

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace = "notice">
+	
+	<select id="getAllNotice" resultClass="noticeVO">
+		select * from notice
+	</select>	
+	
+<!-- 	<insert id="insertNotice" parameterClass="noticeVO"> -->
+<!-- 		INSERT INTO notice  -->
+<!-- 		VALUES (1,#20190001#,#안녕하세여#,#안녕하세요 만나서 반가워요#,sysdate,#1#,#1#);  -->
+<!-- 	</insert> -->
+</sqlMap>

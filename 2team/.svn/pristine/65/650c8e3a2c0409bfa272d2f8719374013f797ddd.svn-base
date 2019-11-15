@@ -1,0 +1,23 @@
+package ysit.student.emp.dao;
+
+import com.ibatis.sqlmap.client.SqlMapClient;
+
+import ysit.util.IbatisUtil;
+
+public class EmpDaoImpl implements IEmpDao {
+/**
+ * @author 민영	
+ */
+	private static EmpDaoImpl dao;
+	private static SqlMapClient smc = null;
+	
+	private EmpDaoImpl() {
+		smc = IbatisUtil.getSqlMapClient();
+	}
+	public static EmpDaoImpl getInstance() {
+		if(dao==null) {
+			dao = new EmpDaoImpl();
+		}
+		return dao;
+	}
+}

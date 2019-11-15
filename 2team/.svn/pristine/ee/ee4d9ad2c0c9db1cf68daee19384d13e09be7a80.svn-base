@@ -1,0 +1,5 @@
+package ysit.professor.counsel.service;
+
+public interface ICounselService {
+
+}

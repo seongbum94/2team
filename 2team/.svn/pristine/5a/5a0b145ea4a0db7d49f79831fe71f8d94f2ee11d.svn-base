@@ -1,0 +1,5 @@
+package ysit.student.notice.service;
+
+public interface INoticeService {
+
+}

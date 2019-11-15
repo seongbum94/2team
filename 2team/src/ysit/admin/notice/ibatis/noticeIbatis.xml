@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace = "notice">
+	
+	<select id="getAllNotice" resultClass="noticeVO">
+		select * from notice ORDER BY 1
+	</select>	
+	
+<!-- 	private int not_id;				// 공지사항 게시글번호[PK] -->
+<!-- 	private String admin_id;		// 작성자(관리자아이디)[FK] -->
+<!-- 	private String not_name;		// 공지사항 게시글 제목 -->
+<!-- 	private String not_content;		// 공지사항 게시글 내용 -->
+<!-- 	private String not_date;		// 공지사항 게시글 작성일 -->
+<!-- 	private int not_cnt;			// 공지사항 게시글 조회수 -->
+<!-- 	private String not_addcontent;  // 공지사항 게시글 첨부파일 경로 -->
+
+	<insert id="insertNotice" parameterClass="noticeVO">
+		INSERT INTO notice (not_id, admin_id, not_name, not_content, not_date, not_cnt) 
+		VALUES ((select nvl(max(not_id)+1,0) from notice),#admin_id#,#not_name#,#not_content#,sysdate,0)
+	</insert>
+	
+<!-- 	<insert id="insertNotice" parameterClass="noticeVO"> -->
+<!-- 		INSERT INTO notice (not_id, admin_id, not_name, not_content, not_date, not_cnt, not_addcontent)  -->
+<!-- 		VALUES (조회수,작성자,#not_name#,) -->
+<!-- 	</insert> -->
+
+<!-- 	<update id="setCountIncrement" parameterClass="Integer"> -->
+<!-- 		update notice set not_cnt = not_cnt + 1 -->
+<!-- 		where not_id = $not_id$ -->
+<!-- 	</update> -->
+	
+</sqlMap>

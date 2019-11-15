@@ -1,0 +1,12 @@
+package ysit.professor.counsel.dao;
+
+public class CounselDaoImpl implements ICounselDao {
+	private static CounselDaoImpl dao;
+	
+	private CounselDaoImpl() {}
+	
+	public static CounselDaoImpl getInstance() {
+		if(dao == null) dao = new CounselDaoImpl();
+		return dao;
+	}
+}

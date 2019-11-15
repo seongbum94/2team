@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+	
+
+<sqlMap namespace="grade">
+<!-- dao 메서드와 sql id를 일치 시킬 것  resultClass="jobs.vo.JobsVo" 파일이 있는 위치를 써주는 것. 대소문자 가림-->
+
+</sqlMap>

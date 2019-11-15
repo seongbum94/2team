@@ -1,0 +1,145 @@
+package ysit.com.login.controller;
+
+import java.io.IOException;
+import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.ResourceBundle;
+
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+import ysit.admin.mainPage.controller.AdmMainPageController;
+import ysit.com.login.service.ILoginService;
+import ysit.com.login.service.LoginServiceImpl;
+import ysit.professor.mainPage.controller.ProMainPageController;
+import ysit.student.mainPage.controller.StuMainPageController;
+import ysit.vo.AdminVO;
+import ysit.vo.LoginVO;
+import ysit.vo.ProfessorVO;
+import ysit.vo.StudentVO;
+
+public class LoginMainController {
+	ILoginService service = LoginServiceImpl.getInstance();
+	
+    @FXML
+    private ResourceBundle resources;
+
+    @FXML
+    private ToggleGroup Member;
+    
+    @FXML
+    private URL location;
+
+    @FXML
+    private TextField tfId;
+
+    @FXML
+    private TextField tfPass;
+
+    @FXML
+    private Button btnLogin;
+
+    @FXML
+    private Button btnFind;
+
+    @FXML
+    private RadioButton radioStu;
+
+    @FXML
+    private ToggleGroup loginCheck;
+
+    @FXML
+    private RadioButton radioPro;
+
+    @FXML
+    private RadioButton radioAdmin;
+
+    @FXML
+    void onClickFind(ActionEvent event) {
+    	try {
+	    	Stage myStage = new Stage(StageStyle.DECORATED);
+	        myStage.initModality(Modality.WINDOW_MODAL);
+	        Parent root = null;
+			root = FXMLLoader.load(getClass().getResource("../fxml/PassWord.fxml"));
+			Scene scene = new Scene(root);
+			myStage.setScene(scene);
+			myStage.show();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+    }
+
+    @FXML
+    void onClickLogin(ActionEvent event) throws IOException {
+    	AdminVO admin = null;
+    	StudentVO stu = null;
+    	ProfessorVO pro = null;
+    	
+    	 
+    	if(Member.getSelectedToggle() == null) {
+    		System.out.println("라디오 선택");
+    		return;
+    	}
+    	
+    	Map<String, String> loginMap = new HashMap<String, String>();
+    	
+    	loginMap.put("login_id", tfId.getText());
+    	loginMap.put("login_pass", tfPass.getText());
+    	
+	    if(Member.getSelectedToggle().getUserData().equals("admin")) {
+	    	admin = (AdminVO)service.login(loginMap,1);
+	    	LoginVO.obj = admin;
+	    } else if(Member.getSelectedToggle().getUserData().equals("student")) {
+	    	stu = (StudentVO)service.login(loginMap,2);
+	    	LoginVO.obj = stu;
+	    } else if(Member.getSelectedToggle().getUserData().equals("professor")) {
+	    	pro = (ProfessorVO)service.login(loginMap,3);
+	    	LoginVO.obj = pro;
+	    }
+	    
+        // 새창에 나타날 FXML문서 읽어오기
+	    if(admin != null || pro != null || stu != null) {
+	    	Stage myStage = new Stage(StageStyle.DECORATED);
+	        myStage.initModality(Modality.WINDOW_MODAL);
+	        Parent root = null;
+	        
+	        if(admin != null) {
+	        	root = FXMLLoader.load(AdmMainPageController.class.getResource("../fxml/AdmMainPage.fxml"));
+	        } else if(pro != null) {
+	        	root = FXMLLoader.load(ProMainPageController.class.getResource("../fxml/ProMainPage.fxml"));
+	        } else {
+	        	root = FXMLLoader.load(StuMainPageController.class.getResource("../fxml/StuMainPage.fxml"));
+	        }
+	        
+	        Scene scene = new Scene(root);
+	        myStage.setScene(scene);
+	        myStage.show();
+	    } else {
+	    	System.out.println("로그인 실패");
+	    }
+    }
+   
+    @FXML
+    void initialize() {	 
+    	Member = new ToggleGroup();
+    	
+    	radioAdmin.setUserData("admin");
+    	radioAdmin.setToggleGroup(Member);
+    	
+    	radioStu.setToggleGroup(Member);
+    	radioStu.setUserData("student");
+    	
+    	radioPro.setToggleGroup(Member);
+    	radioPro.setUserData("professor");
+    }
+}
