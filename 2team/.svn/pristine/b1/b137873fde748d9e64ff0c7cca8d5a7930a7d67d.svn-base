@@ -109,25 +109,3 @@
 [2019-11-16 01:29:09] DEBUG (log4j.Log4jImpl-debug:26) - {rset-100002} Result: [19840002, 620123, null, 오철희, 40, 경영학과, 1958-01-23 00:00:00, 학과장, och@google.com, 충남 논산시 양촌면, null, null, 108, 1984-07-07, 재직, 3]
 [2019-11-16 01:29:09] DEBUG (log4j.Log4jImpl-debug:26) - {rset-100002} Result: [19700001, 881214, null, 구길동, 50, 행정학과, 1950-12-14 00:00:00, 정교수, och@google.com, 대전시 동구 가양1동, null, null, 109, 1959-03-27, 재직, 3]
 [2019-11-16 01:29:09] DEBUG (log4j.Log4jImpl-debug:26) - {rset-100002} Result: [19700002, 520131, null, 이진영, 50, 행정학과, 1952-01-31 00:00:00, 학과장, ljy@google.com, 대전시 서구 삼천동, null, null, 110, 1970-08-24, 재직, 3]
-[2019-11-16 02:03:39] DEBUG (log4j.Log4jImpl-debug:26) - {conn-100000} Connection
-[2019-11-16 02:03:39] DEBUG (log4j.Log4jImpl-debug:26) - {conn-100000} Preparing Statement:    select * from professor where pro_id = 20100001 and pro_pass = 501120  
-[2019-11-16 02:03:39] DEBUG (log4j.Log4jImpl-debug:26) - {pstm-100001} Executing Statement:    select * from professor where pro_id = 20100001 and pro_pass = 501120  
-[2019-11-16 02:03:39] DEBUG (log4j.Log4jImpl-debug:26) - {pstm-100001} Parameters: []
-[2019-11-16 02:03:39] DEBUG (log4j.Log4jImpl-debug:26) - {pstm-100001} Types: []
-[2019-11-16 02:03:39] DEBUG (log4j.Log4jImpl-debug:26) - {rset-100002} ResultSet
-[2019-11-16 02:03:39] DEBUG (log4j.Log4jImpl-debug:26) - {rset-100002} Header: [PRO_ID, PRO_PASS, PRO_PHOTO, PRO_NAME, MAJOR_ID, PRO_BIR, PRO_POSITION, PRO_MAIL, PRO_ADDR, PRO_CAR, PRO_EDU, PRO_LAB, PRO_APPOINTMENT_DATE, PRO_STAT, PRO_GRANT]
-[2019-11-16 02:03:39] DEBUG (log4j.Log4jImpl-debug:26) - {rset-100002} Result: [20100001, 501120, null, 이성엽, 10, 1950-11-20 00:00:00, 정교수, ddoja@naver.com, 대전시 동구 용운동, null, null, 101, 2010-10-24 00:00:00, 재직, 3]
-[2019-11-16 02:03:41] DEBUG (log4j.Log4jImpl-debug:26) - {conn-100003} Connection
-[2019-11-16 02:03:41] DEBUG (log4j.Log4jImpl-debug:26) - {conn-100003} Preparing Statement:    select c.coun_id, c.coun_date, m.major_name, c.stu_id, s.stu_name, coun_type, coun_consent       from counsel c, student s, major m       where c.stu_id = s.stu_id        and c.pro_id = ?         and s.major_id = m.major_id     order by 1  
-[2019-11-16 02:03:41] DEBUG (log4j.Log4jImpl-debug:26) - {pstm-100004} Executing Statement:    select c.coun_id, c.coun_date, m.major_name, c.stu_id, s.stu_name, coun_type, coun_consent       from counsel c, student s, major m       where c.stu_id = s.stu_id        and c.pro_id = ?         and s.major_id = m.major_id     order by 1  
-[2019-11-16 02:03:41] DEBUG (log4j.Log4jImpl-debug:26) - {pstm-100004} Parameters: [20100001]
-[2019-11-16 02:03:41] DEBUG (log4j.Log4jImpl-debug:26) - {pstm-100004} Types: [java.lang.String]
-[2019-11-16 02:03:41] DEBUG (log4j.Log4jImpl-debug:26) - {rset-100005} ResultSet
-[2019-11-16 02:03:41] DEBUG (log4j.Log4jImpl-debug:26) - {rset-100005} Header: [COUN_ID, COUN_DATE, MAJOR_NAME, STU_ID, STU_NAME, COUN_TYPE, COUN_CONSENT]
-[2019-11-16 02:03:41] DEBUG (log4j.Log4jImpl-debug:26) - {rset-100005} Result: [003, 2019-05-14 00:00:00, 컴퓨터공학과, 20191016, 정용석, 수업, 반려]
-[2019-11-16 02:03:41] DEBUG (log4j.Log4jImpl-debug:26) - {rset-100005} Result: [007, 2019-09-24 00:00:00, 전산수학과, 20192023, 김종현, 기타, 반려]
-[2019-11-16 02:03:46] DEBUG (log4j.Log4jImpl-debug:26) - {conn-100006} Connection
-[2019-11-16 02:03:46] DEBUG (log4j.Log4jImpl-debug:26) - {conn-100006} Preparing Statement:    update counsel      set coun_consent = ?    where coun_id = ?  
-[2019-11-16 02:03:46] DEBUG (log4j.Log4jImpl-debug:26) - {pstm-100007} Executing Statement:    update counsel      set coun_consent = ?    where coun_id = ?  
-[2019-11-16 02:03:46] DEBUG (log4j.Log4jImpl-debug:26) - {pstm-100007} Parameters: [승인, 003]
-[2019-11-16 02:03:46] DEBUG (log4j.Log4jImpl-debug:26) - {pstm-100007} Types: [java.lang.String, java.lang.String]
