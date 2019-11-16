@@ -1,5 +1,0 @@
-package ysit.student.notice.dao;
-
-public interface INoticeDAO {
-
-}

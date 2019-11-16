@@ -2,7 +2,6 @@ package ysit.admin.mprofessor.controller;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.ResourceBundle;
@@ -46,7 +45,7 @@ public class MngProfessorController {
 
 
     @FXML
-    private TableView<ProfessorVO> tableView;			                 // 테이블 뷰
+    private TableView<ProfessorVO> tableView;			// 테이블 뷰
 
     @FXML
     private TableColumn<ProfessorVO, String> proIdCol;					// 교수id 컬럼
@@ -123,18 +122,15 @@ public class MngProfessorController {
     void btnProDelClicked(ActionEvent event) {
     	if(!tableView.getSelectionModel().isEmpty()) {
     		index = tableView.getSelectionModel().getSelectedIndex();
-    		//System.out.println("Controller pro_id: " + tableView.getSelectionModel().getSelectedItem().getPro_id());
+    		System.out.println("Controller pro_id: " + tableView.getSelectionModel().getSelectedItem().getPro_id());
     		
     		int cnt = service.removePro(tableView.getSelectionModel().getSelectedItem().getPro_id());
     		
     		if(cnt>0) {
     			AlertController.info("처리결과", "해당 교수 삭제가 완료되었습니다.");
-    			setTableViewData();
     		}else {
     			AlertController.warnning("처리결과", "교수 삭제 실패..전산팀에 문의하세요.");
     		}
-    	}else {
-    		AlertController.warnning("선택오류", "선택한 교수가 없습니다.");
     	}
 
     }
@@ -142,49 +138,11 @@ public class MngProfessorController {
     // 교수 수정 버튼 이벤트
     @FXML
     void btnProModifyClicked(ActionEvent event) {
-    	
-    	if(!tableView.getSelectionModel().isEmpty()) {
-    		index = tableView.getSelectionModel().getSelectedIndex();
-    		
-    		// 공유 데이터에 추가
-    		ShareDate.setShareIndex(index);
-    		ShareDate.shareProVO = proAddList.get(index);
-    		//ShareDate.shareProList = new ArrayList<ProfessorVO>(proAddList.get(0));
-    		
-    		
-        	// 자식창 띄우기 위한 설정
-        	Stage modifyStage = new Stage(StageStyle.DECORATED);
-        	modifyStage.initModality(Modality.WINDOW_MODAL);
-        	modifyStage.initOwner(MProfessorMain.mainStage); // 부모창 설정
-    		
-        	try {
-        		// Fxml문서에 설정된 Controller객체를 구하기 위해서는 
-        		// FXMLLoader객체를 생성해야 한다.
-        		
-        		FXMLLoader loader = new FXMLLoader(getClass().getResource("../fxml/FxmlModifyProfessor.fxml"));  // 자식창
-        		Parent root = loader.load();
-        		
-        		
-        		// FXML문서에 설정된 컨트롤러 객체 구하기
-        		ModifyProfessorController modifyProfessorController = loader.getController();
-        		modifyProfessorController.setMainController(this);
-        		
-        		Scene scene = new Scene(root);
-        		modifyStage.setScene(scene);
-        		modifyStage.setTitle("교수정보 수정");
-        		modifyStage.show();
-        		
-        	} catch (IOException e) {
-        		e.printStackTrace();
-        	}
-        	
-    	
-    	}else {
-    		AlertController.warnning("선택오류", "선택한 교수가 없습니다.");
-    	}
+
     }
 
 
+    
     // 초기 시작
     @FXML
     void initialize() {

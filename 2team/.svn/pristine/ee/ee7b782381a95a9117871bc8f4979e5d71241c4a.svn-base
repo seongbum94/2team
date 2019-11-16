@@ -9,8 +9,6 @@ import com.ibatis.sqlmap.client.SqlMapClient;
 import ysit.util.IbatisUtil;
 import ysit.vo.ProfessorVO;
 
-
-// 교수관리 메인
 public class MProfessorDaoImpl implements IMProfessorDao {
 	private static MProfessorDaoImpl dao;
 	private SqlMapClient smc;

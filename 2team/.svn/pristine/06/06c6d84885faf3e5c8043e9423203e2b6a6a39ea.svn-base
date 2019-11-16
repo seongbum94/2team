@@ -1,5 +1,0 @@
-package ysit.professor.counsel.dao;
-
-public interface ICounselDao {
-
-}

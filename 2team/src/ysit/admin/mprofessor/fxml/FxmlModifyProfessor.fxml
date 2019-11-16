@@ -14,14 +14,14 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ysit.admin.mprofessor.controller.AddProfessorController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ysit.admin.mprofessor.controller.ModifyProfessorController">
    <children>
       <HBox alignment="CENTER" prefHeight="70.0" prefWidth="581.0" spacing="10.0">
          <padding>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </padding>
          <children>
-            <Label text="교수추가">
+            <Label text="교수정보">
                <font>
                   <Font size="33.0" />
                </font>
@@ -40,7 +40,7 @@
             </ImageView>
             <HBox alignment="CENTER" spacing="10.0">
                <children>
-                  <Button fx:id="btnAddImg" mnemonicParsing="false" onAction="#btnAddImgClicked" text="사진추가" />
+                  <Button fx:id="btnModifyImg" mnemonicParsing="false" onAction="#btnModifyImgClicked" text="사진변경" />
                   <Button fx:id="btnDelImg" mnemonicParsing="false" onAction="#btnDelImgClicked" prefWidth="73.0" text="삭제" />
                </children>
                <VBox.margin>
@@ -74,15 +74,14 @@
             <RowConstraints maxHeight="37.0" minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
             <RowConstraints maxHeight="37.0" minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
             <RowConstraints maxHeight="35.0" minHeight="10.0" prefHeight="29.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="35.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
             <Label text="이 름 : " GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <Label text="주 소 : " GridPane.columnIndex="1" GridPane.rowIndex="5" />
             <Label prefHeight="15.0" prefWidth="70.0" text="경력사항 : " GridPane.columnIndex="1" GridPane.rowIndex="7" />
-            <Label text="학과코드 : " GridPane.columnIndex="1" GridPane.rowIndex="9" />
+            <Label text="학 과 : " GridPane.columnIndex="1" GridPane.rowIndex="9" />
             <TextField fx:id="txtFProAddr" prefWidth="500.0" GridPane.columnIndex="2" GridPane.rowIndex="5" />
-            <TextField fx:id="txtFMajorCode" prefWidth="500.0" promptText="학과코드(예:10)" GridPane.columnIndex="2" GridPane.rowIndex="9">
+            <TextField fx:id="txtFMajorName" prefWidth="500.0" GridPane.columnIndex="2" GridPane.rowIndex="9">
                <padding>
                   <Insets top="10.0" />
                </padding>
@@ -97,7 +96,7 @@
             <Label text="학 력 :" GridPane.columnIndex="1" GridPane.rowIndex="6" />
             <TextField fx:id="txtFProEducation" GridPane.columnIndex="2" GridPane.rowIndex="6" />
             <Label text="생년월일 : " GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <TextField fx:id="txtFProBir" promptText="생년월일(YYYY/MM/DD)" GridPane.columnIndex="2" GridPane.rowIndex="3">
+            <TextField fx:id="txtFProBir" promptText="생년월일(YYYY-MM-DD)" GridPane.columnIndex="2" GridPane.rowIndex="3">
                <GridPane.margin>
                   <Insets />
                </GridPane.margin></TextField>
@@ -106,12 +105,12 @@
             <Label text="교 번 :" GridPane.columnIndex="1" />
             <Label text="비밀번호 :" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <Label text="이메일 :" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <TextField fx:id="txtFProId" editable="false" promptText="등록시 자동 생성" GridPane.columnIndex="2">
+            <TextField fx:id="txtFProId" editable="false" GridPane.columnIndex="2">
                <GridPane.margin>
                   <Insets />
                </GridPane.margin>
             </TextField>
-            <TextField fx:id="txtFProPass" editable="false" promptText="등록시 자동 생성" GridPane.columnIndex="2" GridPane.rowIndex="1">
+            <TextField fx:id="txtFProPass" editable="false" GridPane.columnIndex="2" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets />
                </GridPane.margin>
@@ -131,8 +130,6 @@
                   <Insets left="120.0" />
                </GridPane.margin>
             </Label>
-            <Label text="재직상태: " GridPane.columnIndex="1" GridPane.rowIndex="11" />
-            <TextField fx:id="txtFProStat" promptText="예) 재직, 휴직, 퇴직" GridPane.columnIndex="2" GridPane.rowIndex="11" />
          </children>
          <padding>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
@@ -140,7 +137,7 @@
       </GridPane>
       <HBox alignment="CENTER" prefHeight="59.0" prefWidth="600.0" spacing="10.0">
          <children>
-            <Button fx:id="btnInsert" mnemonicParsing="false" onAction="#btnInsertClicked" prefHeight="29.0" prefWidth="116.0" text="등록" />
+            <Button fx:id="btnModity" mnemonicParsing="false" onAction="#btnModityClicked" prefHeight="29.0" prefWidth="116.0" text="수정" />
             <Button fx:id="btnCancel" mnemonicParsing="false" onAction="#btnCancelClicked" prefHeight="29.0" prefWidth="116.0" text="취소">
                <HBox.margin>
                   <Insets left="20.0" />
