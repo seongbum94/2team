@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace = "mstudent">
+	<select id="getAllStudent" resultClass="stuVO">
+		SELECT A.STU_ID,
+	           A.STU_PASS,
+	           A.STU_PHOTO,
+	           B.MAJOR_NAME,
+	           A.STU_NAME,
+	           TO_CHAR(A.STU_ENT, 'YYYY-MM-DD') STU_ENT,
+	           A.STU_REGNO1,
+	           A.STU_REGNO2,
+	           A.STU_REGISTER,
+	           A.STU_TEL,
+	           A.STU_MAIL,
+	           A.STU_ADDR,
+	           A.STU_WARN,
+	           A.STU_CREDITS_POINT,
+	           A.STU_GRADUATION_MINIMUM_CREDITS,
+	           A.STU_GRANT
+	      FROM STUDENT A, MAJOR B
+	     WHERE A.MAJOR_ID = B.MAJOR_ID
+	     ORDER BY STU_ID   	   
+	</select>
+	
+	<!-- 학생이름으로 검색 -->
+	<select id="getStuName" parameterClass="String" resultClass="StuVO">
+		SELECT A.STU_ID,
+	           A.STU_PASS,
+	           A.STU_PHOTO,
+	           B.MAJOR_NAME,
+	           A.STU_NAME,
+	           TO_CHAR(A.STU_ENT, 'YYYY-MM-DD') STU_ENT,
+	           A.STU_REGNO1,
+	           A.STU_REGNO2,
+	           A.STU_REGISTER,
+	           A.STU_TEL,
+	           A.STU_MAIL,
+	           A.STU_ADDR,
+	           A.STU_WARN,
+	           A.STU_CREDITS_POINT,
+	           A.STU_GRADUATION_MINIMUM_CREDITS,
+	           A.STU_GRANT
+	      FROM STUDENT A, MAJOR B
+	     WHERE A.MAJOR_ID = B.MAJOR_ID
+	       AND A.STU_NAME = #stu_name#
+	     ORDER BY STU_ID   	  
+	</select>
+	
+	<!-- 학번으로 검색 -->
+	<select id="getStuId" parameterClass="String" resultClass="StuVO">
+		SELECT A.STU_ID,
+	           A.STU_PASS,
+	           A.STU_PHOTO,
+	           B.MAJOR_NAME,
+	           A.STU_NAME,
+	           TO_CHAR(A.STU_ENT, 'YYYY-MM-DD') STU_ENT,
+	           A.STU_REGNO1,
+	           A.STU_REGNO2,
+	           A.STU_REGISTER,
+	           A.STU_TEL,
+	           A.STU_MAIL,
+	           A.STU_ADDR,
+	           A.STU_WARN,
+	           A.STU_CREDITS_POINT,
+	           A.STU_GRADUATION_MINIMUM_CREDITS,
+	           A.STU_GRANT
+	      FROM STUDENT A, MAJOR B
+	     WHERE A.MAJOR_ID = B.MAJOR_ID
+	       AND A.STU_ID = #stu_id#
+	     ORDER BY STU_ID   	  
+	</select>
+	
+</sqlMap>

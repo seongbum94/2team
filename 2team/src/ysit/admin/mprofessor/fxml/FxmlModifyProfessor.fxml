@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ysit.admin.mprofessor.controller.ModifyProfessorController">
+   <children>
+      <HBox alignment="CENTER" prefHeight="70.0" prefWidth="581.0" spacing="10.0">
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+         <children>
+            <Label text="교수 정보 변경">
+               <font>
+                  <Font size="33.0" />
+               </font>
+            </Label>
+         </children>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+      </HBox>
+      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="327.0">
+         <children>
+            <ImageView fx:id="imgView" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../images/프로필사진.jpg" />
+               </image>
+            </ImageView>
+            <HBox alignment="CENTER" spacing="10.0">
+               <children>
+                  <Button fx:id="btnModifyImg" mnemonicParsing="false" onAction="#btnModifyImgClicked" text="사진변경" />
+                  <Button fx:id="btnDelImg" mnemonicParsing="false" onAction="#btnDelImgClicked" prefWidth="73.0" text="삭제" />
+               </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+               <padding>
+                  <Insets top="10.0" />
+               </padding>
+            </HBox>
+         </children>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+      </VBox>
+      <GridPane alignment="CENTER_LEFT" prefHeight="406.0" prefWidth="602.0" vgap="5.0">
+        <columnConstraints>
+            <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="511.0" minWidth="3.0" prefWidth="59.0" />
+          <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="511.0" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="897.0" minWidth="10.0" prefWidth="263.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="897.0" minWidth="10.0" prefWidth="154.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="70.0" minHeight="10.0" prefHeight="70.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="37.0" minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="37.0" minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="35.0" minHeight="10.0" prefHeight="29.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="35.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="이 름 : " GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label text="주 소 : " GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <Label prefHeight="15.0" prefWidth="70.0" text="경력사항 : " GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            <Label text="학과명 : " GridPane.columnIndex="1" GridPane.rowIndex="9" />
+            <TextField fx:id="txtFProAddr" prefWidth="500.0" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+            <TextField fx:id="txtFMajorName" prefWidth="500.0" GridPane.columnIndex="2" GridPane.rowIndex="9">
+               <padding>
+                  <Insets top="10.0" />
+               </padding>
+            </TextField>
+            <TextField fx:id="txtFProName" prefHeight="24.0" prefWidth="204.0" promptText="2~20자 이내" GridPane.columnIndex="2" GridPane.rowIndex="2">
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin></TextField>
+            <Label text="직 위 : " GridPane.columnIndex="1" GridPane.rowIndex="10" />
+            <TextField fx:id="txtFProPosition" GridPane.columnIndex="2" GridPane.rowIndex="10" />
+            <TextArea fx:id="txtAProCareer" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="7" />
+            <Label text="학 력 :" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <TextField fx:id="txtFProEducation" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+            <Label text="생년월일 : " GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="txtFProBir" promptText="생년월일(YYYY/MM/DD)" GridPane.columnIndex="2" GridPane.rowIndex="3">
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin></TextField>
+            <Label text="임용날짜: " GridPane.columnIndex="1" GridPane.rowIndex="8" />
+            <TextField fx:id="txtFProAppointmentDate" GridPane.columnIndex="2" GridPane.rowIndex="8" />
+            <Label text="교 번 :" GridPane.columnIndex="1" />
+            <Label text="비밀번호 :" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label text="이메일 :" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <TextField fx:id="txtFProId" editable="false" GridPane.columnIndex="2">
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+            </TextField>
+            <TextField fx:id="txtFProPass" GridPane.columnIndex="2" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+            </TextField>
+            <TextField fx:id="txtProEmail1" GridPane.columnIndex="2" GridPane.rowIndex="4">
+               <GridPane.margin>
+                  <Insets right="150.0" />
+               </GridPane.margin>
+            </TextField>
+            <TextField fx:id="txtProEmail2" GridPane.columnIndex="2" GridPane.rowIndex="4">
+               <GridPane.margin>
+                  <Insets left="140.0" />
+               </GridPane.margin>
+            </TextField>
+            <Label text="\@" GridPane.columnIndex="2" GridPane.rowIndex="4">
+               <GridPane.margin>
+                  <Insets left="120.0" />
+               </GridPane.margin>
+            </Label>
+            <Label text="재직상태: " GridPane.columnIndex="1" GridPane.rowIndex="11" />
+            <TextField fx:id="txtFProStat" promptText="예) 재직, 휴직, 퇴직" GridPane.columnIndex="2" GridPane.rowIndex="11" />
+            <Label text=" 수정시에도 코드 입력" GridPane.columnIndex="3" GridPane.rowIndex="9" />
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+      </GridPane>
+      <HBox alignment="CENTER" prefHeight="59.0" prefWidth="600.0" spacing="10.0">
+         <children>
+            <Button fx:id="btnModity" mnemonicParsing="false" onAction="#btnModityClicked" prefHeight="29.0" prefWidth="116.0" text="수정" />
+            <Button fx:id="btnCancel" mnemonicParsing="false" onAction="#btnCancelClicked" prefHeight="29.0" prefWidth="116.0" text="취소">
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin></Button>
+         </children>
+         <VBox.margin>
+            <Insets bottom="50.0" top="40.0" />
+         </VBox.margin>
+      </HBox>
+   </children>
+</VBox>

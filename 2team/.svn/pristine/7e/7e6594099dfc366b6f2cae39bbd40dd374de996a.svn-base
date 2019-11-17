@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<StackPane fx:id="clickedStackPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="636.0" prefWidth="831.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ysit.student.counsel.controller.CalApl2Controller">
+   <children>
+      <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="636.0" prefWidth="831.0">
+         <children>
+            <VBox prefHeight="300.0" prefWidth="500.0">
+               <children>
+                  <TableView fx:id="selectTable" onMouseClicked="#onClicked" prefHeight="300.0" prefWidth="500.0">
+                     <columns>
+                        <TableColumn fx:id="selectPro" prefWidth="245.0" text="교수명" />
+                        <TableColumn fx:id="selectCon" prefWidth="268.0" text="학과" />
+                        <TableColumn fx:id="selectOk" prefWidth="317.0" text="직위" />
+                     </columns>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </TableView>
+               </children>
+            </VBox>
+            <VBox prefHeight="29.0" prefWidth="500.0">
+               <children>
+                  <Label prefHeight="30.0" prefWidth="269.0" text="▽예약가능한 상담일정입니다.">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="10.0" top="10.0" />
+                     </VBox.margin>
+                  </Label>
+               </children>
+            </VBox>
+            <TableView fx:id="selectSchedule" onMouseClicked="#onClicked2" prefHeight="500.0" prefWidth="831.0">
+               <columns>
+                  <TableColumn fx:id="selectDate" prefWidth="273.0" text="날짜" />
+                  <TableColumn fx:id="selectApply" prefWidth="557.0" text="예약신청" />
+               </columns>
+            </TableView>
+         </children>
+      </VBox>
+   </children>
+</StackPane>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+	
+<sqlMap namespace="notice">
+	<select id="getNoticeList" resultClass="noticeVO">
+		select not_id, admin_id, not_name, not_content, not_date, not_cnt, not_addcontent 
+		  from notice
+	</select>
+</sqlMap>	
+
+
+
+
+
+
+

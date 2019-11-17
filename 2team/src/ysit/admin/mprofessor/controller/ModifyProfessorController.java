@@ -1,0 +1,391 @@
+package ysit.admin.mprofessor.controller;
+
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.stage.FileChooser;
+import javafx.stage.FileChooser.ExtensionFilter;
+import javafx.stage.Stage;
+import ysit.admin.mprofessor.main.MProfessorMain;
+import ysit.admin.mprofessor.service.IMProfessorService;
+import ysit.admin.mprofessor.service.MProfessorServiceImpl;
+import ysit.com.alert.AlertController;
+import ysit.com.regex.RegEx;
+import ysit.vo.ProfessorVO;
+
+
+// 교수 수정 
+public class ModifyProfessorController {
+
+	private MngProfessorController mainController;
+	
+	public void setMainController(MngProfessorController mainMngProfessorController) {
+		this.mainController = mainMngProfessorController;
+	}
+	
+    @FXML
+    private ResourceBundle resources;
+
+    @FXML
+    private URL location;
+
+    @FXML
+    private TextField txtFProAddr;								// 교수 주소
+
+    @FXML
+    private TextField txtFMajorName;							// 학과명
+
+    @FXML
+    private TextField txtFProName;								// 교수 이름
+
+    @FXML
+    private TextField txtFProPosition;							// 교수 직위
+
+    @FXML
+    private TextArea txtAProCareer;								// 교수 경력사항
+
+    @FXML
+    private TextField txtFProEducation;							// 교수 학력사항
+
+    @FXML
+    private TextField txtFProBir;							    // 교수 생년월일
+
+    @FXML	
+    private TextField txtFProAppointmentDate;					// 교수 임용날짜
+
+    @FXML
+    private TextField txtFProId;								// 교수 교번
+
+    @FXML
+    private TextField txtFProPass;								// 교수 비밀번호
+
+    @FXML
+    private TextField txtProEmail1;								// 교수 이메일1
+
+    @FXML
+    private TextField txtProEmail2;								// 교수 이메일2
+    
+    @FXML
+    private TextField txtFMajorCode;				          	// 학과명
+    
+  
+    @FXML
+    private TextField txtFProStat;					        	// 재직상태
+    
+    
+    @FXML
+    private ImageView imgView;									// 이미지뷰
+
+    @FXML
+    private Button btnModifyImg;								// 교수사진변경 버튼
+
+    @FXML
+    private Button btnDelImg;									// 교수사진삭제 버튼
+
+    @FXML
+    private Button btnModity;									// 정보수정 버튼
+
+    @FXML
+    private Button btnCancel;									// 정보삭제 버튼
+
+    
+    private IMProfessorService service;
+    private String inputFilePath = "d:\\upload\\";				// 파일 읽어오기....
+    private String inputFileName;
+    
+    //private String outputFilePath = "d:\\upload\\";
+    private String outputFilePath = "\\C:\\A_TeachingMaterial\\5.MiddleProject\\workspace\\2team\\images\\";
+    private String outputFileName;
+    private boolean imgCheck = false;
+    
+    // 버튼이벤트
+    @FXML
+    void btnCancelClicked(ActionEvent event) {		// 취소 버튼
+    	// 창 닫기를 하려면 현재 Stage객체를 얻어야 한다.
+    	// javaFx의 컨트롤 객체를 이용하여 Stage객체를 구할 수 있다.
+    	Stage thisForm = (Stage) btnCancel.getScene().getWindow();
+    	thisForm.close(); 
+
+    }
+
+    @FXML
+    void btnDelImgClicked(ActionEvent event) throws IOException { // 이미지 삭제
+    	
+    	if(imgView.imageProperty().get()==null) {
+    		AlertController.warnning("오류", "등록된 사진이 없습니다.");
+    		return;
+    	}
+    	//File path = new File(".");
+    	//System.out.println(path.getAbsolutePath());
+    	// C:\A_TeachingMaterial\5.MiddleProject\workspace\2team\images
+    	//File profile = new File("C:\\A_TeachingMaterial\\5.MiddleProject\\workspace\\2team..\\..\\..\\..\\..\\images\\프로필사진.jpg");
+    	//File imgFile = new File("../../../../../images/프로필사진.jpg");
+    	//System.out.println(profile.getAbsolutePath());
+    	//System.out.println(profile.getCanonicalPath());
+    	//if(profile.exists()) {
+    	//	System.out.println("사진 존재");
+    	//}else {
+    	//	System.out.println("사진 없음");
+    	//}
+    	
+    	File profile = new File(outputFilePath+"프로필사진.jpg");
+    	Image img = new Image(profile.toURI().toString(),150.0, 200.0, false, false);
+    	imgView.setImage(img);
+    }
+    
+    
+
+    @FXML
+    void btnModifyImgClicked(ActionEvent event) {	// 이미지 교체
+    	// File Open Dialog 창  -------------------------------------
+    	FileChooser fileChooser = new FileChooser();
+    	
+    	// 파일을 Open창에서 보여줄 파일 종류를 설정하기
+    	fileChooser.getExtensionFilters().addAll(
+			new ExtensionFilter("Image Files", "*.png", "*.jpg", "*.gif")
+		);
+    	
+    	// Open창을 열고 Open창에서 선택한 파일 정보 읽어오기
+    	File selectFile = fileChooser.showOpenDialog(MProfessorMain.mainStage);
+    	
+    	
+    	
+    	if(selectFile!=null) {  // 파일이 선택되었으면...
+			// 이 영역에서는 선택한 파일의 내용을 읽어오는 작업이 
+			// 기술되어야 한다.
+    		//Image img = new Image(selectFile.toURI().toString(), 150.0, 200.0, false, false);
+
+    		
+    		try {
+    			//FileInputStream fis = new FileInputStream(selectFile);
+    			
+    			FileInputStream fis = new FileInputStream(selectFile);
+	    		Image img = new Image(selectFile.toURI().toString(), 150.0, 200.0, false, false);
+        		imgView.setImage(img);
+        		
+        		// 파일 출력
+        		File outFile = new File(outputFilePath);
+        		outputFileName = selectFile.getName();
+    			// 폴더가 없을경우 만들기..
+    			if(!outFile.mkdirs()) {
+    				outFile.mkdirs();
+    			}
+	    		FileOutputStream fout = new FileOutputStream(outputFilePath+outputFileName);
+	    		System.out.println("outFile Path: " + outFile.getPath());
+
+	    		System.out.println("ModifyController fout: " + fout);
+	    		BufferedOutputStream bos = new BufferedOutputStream(fout);	
+	    		imgCheck = true;	
+	    		int c;	
+	    		byte[] buffer = new byte[512];
+	    		while((c=fis.read(buffer)) != -1){
+					bos.write(buffer, 0, c);
+				}
+	
+				bos.close();
+				fis.close();
+				
+				} catch (FileNotFoundException e) {
+					e.printStackTrace();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}else {
+				imgCheck = false;
+			}
+		
+    }
+
+    @FXML
+    void btnModityClicked(ActionEvent event) {	     // 수정버튼 
+
+    	int cnt = 0;		// 오류 횟수
+    	
+    	if(txtFProName==null|| txtFProName.getLength()==0) {
+    		AlertController.warnning("입력 오류", "이름을 입력하세요.");
+    		++cnt;
+    		
+    	}else if(!RegEx.checkMemName(txtFProName.getText().trim())){
+    		AlertController.warnning("입력 오류", "한글 2 ~ 20자 이내로 입력하세요.");
+    		++cnt;
+    	}
+    	
+    	// 생년월일 공백 확인
+    	if(txtFProBir==null|| txtFProBir.getLength()==0) {
+    		AlertController.warnning("입력 오류", "생년월일을 입력하세요.");
+    		++cnt;
+    		
+    	}else if(!RegEx.checkMemBirth(txtFProBir.getText().trim())){
+    		AlertController.warnning("입력 오류", "YYYY-MM-DD 형식으로 입력하세요.");
+    		++cnt;
+    	}
+    	
+    	// 학과코드 공백확인
+    	if(txtFMajorName==null|| txtFMajorName.getLength()==0) {
+    		AlertController.warnning("입력 오류", "학과코드를 입력하세요.");
+    		++cnt;
+    	}// 학과코드도 정규식????????????????????? (보류)
+    	
+    	// 이메일 공백확인
+    	if(txtProEmail1==null|| txtProEmail1.getLength()==0) {
+    		AlertController.warnning("입력 오류", "이메일을 입력하세요.");
+    		++cnt;
+    	}
+    	
+    	if(txtProEmail2==null|| txtProEmail2.getLength()==0) {
+    		AlertController.warnning("입력 오류", "이메일 주소를 입력하세요.");
+    		++cnt;
+    	}
+	
+    	if(txtFProAppointmentDate==null|| txtFProAppointmentDate.getLength()==0) {
+    		AlertController.warnning("입력 오류", "임용날짜를 입력하세요.");
+    		++cnt;
+    	}else if(!RegEx.checkMemBirth(txtFProAppointmentDate.getText().trim())){
+    		AlertController.warnning("입력 오류", "YYYY-MM-DD 형식으로 입력하세요.");
+    		++cnt;
+    	}
+    	
+    	
+    	if(txtFProStat==null|| txtFProStat.getLength()==0) {
+    		AlertController.warnning("입력 오류", "재직상태를 입력하세요.");
+    		++cnt;
+    	}
+    	
+    	if(cnt==0) {
+    		ProfessorVO proVO = new ProfessorVO();
+
+    		
+    		// 비밀번호 생일
+    		//String[] birth = txtFProBir.getText().split("-");
+    		//String pass = birth[0] + birth[1] + birth[2];
+    		
+    		if(!txtFProPass.getText().equals(ShareData.shareProVO.getPro_pass())) {
+    			proVO.setPro_pass(txtFProPass.getText());
+    		}else {
+    			proVO.setPro_pass(txtFProPass.getText());
+    		}
+    		
+    		// vo에 데이터 넣기
+    		proVO.setPro_id(ShareData.shareProVO.getPro_id());
+    		;									// 비밀번호
+    		if(imgCheck) {		// 이미지 경로가 있을때
+    			proVO.setPro_photo(outputFilePath+outputFileName);		// 사진
+    		}else {
+    			proVO.setPro_photo("null");
+    		}
+    		proVO.setPro_name(txtFProName.getText());					// 교수 이름
+    		proVO.setPro_bir(txtFProBir.getText());						// 교수 생일
+    		
+    		if(txtFProAddr!=null) {										// 교수 주소
+    			proVO.setPro_addr(txtFProAddr.getText());
+    		}else {
+    			proVO.setPro_addr("null");
+    		}
+    		
+    		proVO.setPro_mail(txtProEmail1.getText() + "@" +txtProEmail2.getText());		// 교수 이메일
+    		
+    		if(txtFProEducation!=null) {								// 학력사항
+    			proVO.setPro_edu(txtFProEducation.getText());
+    		}else {
+    			proVO.setPro_edu("null");
+    		}
+    	
+    		if(txtAProCareer.getText()!=null) {							// 경력사항
+    			proVO.setPro_car(txtAProCareer.getText());
+    		}else {
+    			proVO.setPro_car(null);
+    		}
+    		
+    		proVO.setPro_appointment_date(txtFProAppointmentDate.getText());	// 임용날짜
+    		proVO.setMajor_id(ShareData.majorId(txtFMajorName.getText()));		// 학과코드
+    		
+    		
+    		if(txtFProPosition.getText()!=null) {								// 직위
+    			proVO.setPro_position(txtFProPosition.getText());
+    		}else {
+    			proVO.setPro_position(null);
+    		}
+    		
+    		if(txtFProStat.getText()!=null) {							         // 상태
+    			proVO.setPro_stat(txtFProStat.getText());
+    		}else {
+    			proVO.setPro_stat(null);
+    		}
+    		proVO.setPro_lab(mainController.proLab(txtFProStat.getText()));		// 연구실번호	
+    		
+    		// service 호출
+    		int res = service.updatePro(proVO);
+    		if(res > 0) {
+    			AlertController.info("작업결과", "교수 정보 수정 성공!!");
+    			Stage thisForm = (Stage) btnModity.getScene().getWindow();
+    	    	thisForm.close();
+    	    	mainController.setTableViewData();
+    		}else {
+    			AlertController.warnning("작업결과", "교수 정보 수정 실패..전산팀에 문의하세요.");
+    		}
+    		
+    	}
+    	
+
+    }
+
+    @FXML
+    void initialize() {
+    	service = MProfessorServiceImpl.getInstance();
+    	
+    	// 등록된 이미지 불러오기
+    	// 공유데이터 이용
+    	// 이미지
+    	String photo = ShareData.shareProVO.getPro_photo();
+    	
+    	if(photo !=null) {
+    		File setImg = new File(photo);
+        	outputFileName = setImg.getName();
+    		FileInputStream fis;
+    		imgCheck = true;
+
+    		try {
+    			fis = new FileInputStream(setImg);
+    			Image img = new Image(fis, 150.0, 200.0, false, false);
+    			
+    			imgView.setImage(img);
+				
+			} catch (FileNotFoundException e) {
+				
+				e.printStackTrace();
+			}
+    	}
+
+    	txtFProId.setText(ShareData.shareProVO.getPro_id());
+    	txtFProPass.setText(ShareData.shareProVO.getPro_pass());
+    	txtFProName.setText(ShareData.shareProVO.getPro_name());
+    	txtFProBir.setText(ShareData.shareProVO.getPro_bir());
+    	String[] email = ShareData.shareProVO.getPro_mail().split("@");
+    	txtProEmail1.setText(email[0]);
+    	txtProEmail2.setText(email[1]);
+    	txtFProAddr.setText(ShareData.shareProVO.getPro_addr());
+    	txtFProEducation.setText(ShareData.shareProVO.getPro_edu());
+    	txtAProCareer.setText(ShareData.shareProVO.getPro_car());
+    	txtFProAppointmentDate.setText(ShareData.shareProVO.getPro_appointment_date());
+    	txtFMajorName.setText(ShareData.shareProVO.getMajor_name());
+    	txtFProPosition.setText(ShareData.shareProVO.getPro_position());
+    	txtFProStat.setText(ShareData.shareProVO.getPro_stat());
+    	
+    }
+    
+ 
+}

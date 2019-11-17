@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Pagination?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="636.0" prefWidth="831.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ysit.admin.tuition.controller.TuitionController">
+   <center>
+      <StackPane prefHeight="150.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0" spacing="10.0">
+               <children>
+                  <Label text="등록금관리">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <TableView fx:id="tuitTableView" prefHeight="461.0" prefWidth="811.0">
+                     <columns>
+                        <TableColumn fx:id="colStuId" prefWidth="195.0" text="학번" />
+                        <TableColumn fx:id="colStuMajId" minWidth="0.0" prefWidth="221.0" text="학과" />
+                        <TableColumn fx:id="colStuName" prefWidth="224.0" text="학생이름" />
+                        <TableColumn fx:id="colTuitOk" prefWidth="170.0" text="납부여부" />
+                     </columns>
+                  </TableView>
+                  <Pagination prefHeight="39.0" prefWidth="811.0" />
+               </children>
+               <padding>
+                  <Insets left="10.0" right="10.0" top="10.0" />
+               </padding>
+            </VBox>
+         </children>
+      </StackPane>
+   </center>
+   <bottom>
+      <HBox alignment="TOP_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="10.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="btnOk" mnemonicParsing="false" onAction="#onClickedOk" text="납부" />
+            <Button fx:id="btnNot" mnemonicParsing="false" onAction="#onClickedNot" text="미납" />
+            <Button fx:id="btnSendMms" mnemonicParsing="false" onAction="#onClickedMms" text="알림문자" />
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+      </HBox>
+   </bottom>
+</BorderPane>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+	
+<sqlMap namespace="emp">
+	<select id="getEmpList" resultClass="empVO">
+		select e.emp_notice_id, e.emp_notice_name, a.admin_name, e.emp_date, e.emp_cnt, e.emp_addcontent
+		from emp_notice e, admin a
+		where e.admin_id = a.admin_id
+	</select>
+	<update id="increaseCnt" parameterClass="empVO">
+		update emp_notice 
+		   set emp_cnt = emp_cnt + 1
+		 where emp_notice_id = #emp_notice_id#
+	</update>
+	
+	<select id="getSelectedEmp" resultClass="empVO">
+		select e.emp_notice_id, a.admin_name, e.emp_notice_name, e.emp_content, e.emp_date, e.emp_cnt, e.emp_addcontent
+		  from emp_notice e, admin a
+		 where emp_notice_id = #emp_notice_id#
+		   and e.admin_id = a.admin_id
+	</select>
+	
+		<!-- 게시글제목으로 검색 -->
+	<select id = "searchTitle" parameterClass="String" resultClass="empVO">
+		select emp_notice_id,  
+      		   a.admin_name, 
+       	       emp_notice_name, 
+      		   emp_content, 
+      		   emp_date,
+      		   emp_cnt,
+       		   emp_addcontent
+ 		  from emp_notice e, admin a
+		 where e.admin_id = a.admin_id
+  		   and emp_notice_name like '%$notice_name$%'
+  		 order by emp_notice_id desc 
+	</select>
+	
+	
+		<!-- 작성자로 검색 -->
+	<select id = "searchWriter" parameterClass="String" resultClass="empVO">
+		select emp_notice_id,
+       		   a.admin_name, 
+       		   emp_notice_name, 
+       		   emp_content, 
+       		   emp_date,
+       		   emp_cnt,
+       		   emp_addcontent
+  		  from emp_notice e, admin a
+		 where e.admin_id = a.admin_id
+  		   and a.admin_name like '%$admin_name$%'
+  		 order by emp_notice_id desc   
+	</select>
+	
+	
+	<!-- 글내용으로 검색 -->
+	<select id = "searchContent" parameterClass="String" resultClass="empVO">
+		select emp_notice_id,   
+       		   a.admin_name, 
+       		   emp_notice_name, 
+      		   emp_content, 
+     		   emp_date,
+     		   emp_cnt,
+     		   emp_addcontent
+ 		  from emp_notice e, admin a
+		 where e.admin_id = a.admin_id
+  		   and emp_content like '%$content$%'
+  		 order by emp_notice_id desc   
+	</select>
+	
+	<!-- 게시글 클릭하면 내용이 보여짐 -->
+	<select id="clickNotice"	parameterClass="String" resultClass="empVO">
+	   select emp_notice_id,  
+       		  a.admin_name, 
+     		  emp_notice_name, 
+   		      emp_content, 
+    	      emp_date,
+     		  emp_cnt,
+     		  emp_addcontent
+  		 from emp_notice e, admin a
+ 		where e.admin_id = a.admin_id
+   		  and emp_notice_id like #emp_notice_id#
+	</select>
+	
+</sqlMap>	
+
+
+
+
+
+
+

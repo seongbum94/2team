@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+	
+<sqlMap namespace="subject">
+	<select id="getOpenList" resultClass="openingVO">
+		select distinct opsub_id, opsub_year, opsub_sem, s.sub_name, opsub_credit, o.pro_id, opsub_price, opsub_limit_people, sub_member, sub_room, pro_plan,sub_stat, op_day, op_class
+		  from opening_subject o, subject s, professor p
+	  	 where o.sub_id = s.sub_id
+		   and o.pro_id = #pro_id#
+		 order by 1
+	</select>
+	<select id="getOpId" parameterClass="String" resultClass="String">
+		select concat(#sub_id#,max(substr(sub_id,2,3))+1)
+		  from subject
+    	 where sub_id like '$sub_id$%'
+	</select>
+	<insert id="insertSubject" parameterClass="openingVO">
+		insert into opening_subject values(#opsub_id#, 
+										   extract(year from sysdate), 
+										   $opsub_sem$, 
+										   #sub_id#, 
+										   $opsub_credit$, 
+										   #pro_id#, 
+										   300000, 
+										   #opsub_limit_people#, 
+										   $sub_member$, 
+										   $sub_room$, 
+										   #pro_plan#, 
+										   'N', 
+										   $op_class$, 
+										   #op_day#)
+	</insert>
+	<insert id="createSubject" parameterClass="openingVO">
+		insert into subject values(#sub_id#,#sub_name#,1)
+	</insert>
+	
+	<select id="getMaxOpId" resultClass="String">
+		select to_char(max(rownum)+1) as opsub_id
+		  from opening_subject
+	</select> 
+	
+	<select id="getMaxRoom" resultClass="int">
+		select max(sub_room)+1 as sub_room
+		  from opening_subject
+	</select>
+	
+</sqlMap>	
+
+
+
+
+
+
+

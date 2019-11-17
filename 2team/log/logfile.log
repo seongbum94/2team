@@ -1,0 +1,104 @@
+[2019-11-18 00:05:31] DEBUG (log4j.Log4jImpl-debug:26) - {conn-100000} Connection
+[2019-11-18 00:05:31] DEBUG (log4j.Log4jImpl-debug:26) - {conn-100000} Preparing Statement:    select * from professor where pro_id = 20100001 and pro_pass = 1  
+[2019-11-18 00:05:32] DEBUG (log4j.Log4jImpl-debug:26) - {pstm-100001} Executing Statement:    select * from professor where pro_id = 20100001 and pro_pass = 1  
+[2019-11-18 00:05:32] DEBUG (log4j.Log4jImpl-debug:26) - {pstm-100001} Parameters: []
+[2019-11-18 00:05:32] DEBUG (log4j.Log4jImpl-debug:26) - {pstm-100001} Types: []
+[2019-11-18 00:05:32] DEBUG (log4j.Log4jImpl-debug:26) - {rset-100002} ResultSet
+[2019-11-18 00:05:32] DEBUG (log4j.Log4jImpl-debug:26) - {rset-100002} Header: [PRO_ID, PRO_PASS, PRO_PHOTO, PRO_NAME, MAJOR_ID, PRO_BIR, PRO_POSITION, PRO_MAIL, PRO_ADDR, PRO_CAR, PRO_EDU, PRO_LAB, PRO_APPOINTMENT_DATE, PRO_STAT, PRO_GRANT]
+[2019-11-18 00:05:32] DEBUG (log4j.Log4jImpl-debug:26) - {rset-100002} Result: [20100001, 1, null, 이성엽, 10, 1950-11-20 00:00:00, 정교수, ddoja@naver.com, 대전시 동구 용운동, null, null, 101, 2010-10-24 00:00:00, 재직, 3]
+[2019-11-18 00:05:39] DEBUG (log4j.Log4jImpl-debug:26) - {conn-100003} Connection
+[2019-11-18 00:05:39] DEBUG (log4j.Log4jImpl-debug:26) - {conn-100003} Preparing Statement:    select distinct opsub_id, opsub_year, opsub_sem, s.sub_name, opsub_credit, o.pro_id, opsub_price, opsub_limit_people, sub_member, sub_room, pro_plan,sub_stat, op_day, op_class     from opening_subject o, subject s, professor p      where o.sub_id = s.sub_id      and o.pro_id = ?    order by 1  
+[2019-11-18 00:05:39] DEBUG (log4j.Log4jImpl-debug:26) - {pstm-100004} Executing Statement:    select distinct opsub_id, opsub_year, opsub_sem, s.sub_name, opsub_credit, o.pro_id, opsub_price, opsub_limit_people, sub_member, sub_room, pro_plan,sub_stat, op_day, op_class     from opening_subject o, subject s, professor p      where o.sub_id = s.sub_id      and o.pro_id = ?    order by 1  
+[2019-11-18 00:05:39] DEBUG (log4j.Log4jImpl-debug:26) - {pstm-100004} Parameters: [20100001]
+[2019-11-18 00:05:39] DEBUG (log4j.Log4jImpl-debug:26) - {pstm-100004} Types: [java.lang.String]
+[2019-11-18 00:05:39] DEBUG (log4j.Log4jImpl-debug:26) - {rset-100005} ResultSet
+[2019-11-18 00:05:39] DEBUG (log4j.Log4jImpl-debug:26) - {rset-100005} Header: [OPSUB_ID, OPSUB_YEAR, OPSUB_SEM, SUB_NAME, OPSUB_CREDIT, PRO_ID, OPSUB_PRICE, OPSUB_LIMIT_PEOPLE, SUB_MEMBER, SUB_ROOM, PRO_PLAN, SUB_STAT, OP_DAY, OP_CLASS]
+[2019-11-18 00:05:39] DEBUG (log4j.Log4jImpl-debug:26) - {rset-100005} Result: [001, 2019, 2, 고급C언어프로그래밍, 3, 20100001, 300000, 40, 0, 101, 고급 c언어 프로그래밍, Y, 수, 8]
+[2019-11-18 00:12:54] DEBUG (log4j.Log4jImpl-debug:26) - {conn-100000} Connection
+[2019-11-18 00:12:54] DEBUG (log4j.Log4jImpl-debug:26) - {conn-100000} Preparing Statement:    select * from professor where pro_id = 20100001 and pro_pass = 1  
+[2019-11-18 00:12:54] DEBUG (log4j.Log4jImpl-debug:26) - {pstm-100001} Executing Statement:    select * from professor where pro_id = 20100001 and pro_pass = 1  
+[2019-11-18 00:12:54] DEBUG (log4j.Log4jImpl-debug:26) - {pstm-100001} Parameters: []
+[2019-11-18 00:12:54] DEBUG (log4j.Log4jImpl-debug:26) - {pstm-100001} Types: []
+[2019-11-18 00:12:55] DEBUG (log4j.Log4jImpl-debug:26) - {rset-100002} ResultSet
+[2019-11-18 00:12:55] DEBUG (log4j.Log4jImpl-debug:26) - {rset-100002} Header: [PRO_ID, PRO_PASS, PRO_PHOTO, PRO_NAME, MAJOR_ID, PRO_BIR, PRO_POSITION, PRO_MAIL, PRO_ADDR, PRO_CAR, PRO_EDU, PRO_LAB, PRO_APPOINTMENT_DATE, PRO_STAT, PRO_GRANT]
+[2019-11-18 00:12:55] DEBUG (log4j.Log4jImpl-debug:26) - {rset-100002} Result: [20100001, 1, null, 이성엽, 10, 1950-11-20 00:00:00, 정교수, ddoja@naver.com, 대전시 동구 용운동, null, null, 101, 2010-10-24 00:00:00, 재직, 3]
+[2019-11-18 00:13:12] DEBUG (log4j.Log4jImpl-debug:26) - {conn-100003} Connection
+[2019-11-18 00:13:12] DEBUG (log4j.Log4jImpl-debug:26) - {conn-100003} Preparing Statement:    select distinct opsub_id, opsub_year, opsub_sem, s.sub_name, opsub_credit, o.pro_id, opsub_price, opsub_limit_people, sub_member, sub_room, pro_plan,sub_stat, op_day, op_class     from opening_subject o, subject s, professor p      where o.sub_id = s.sub_id      and o.pro_id = ?    order by 1  
+[2019-11-18 00:13:12] DEBUG (log4j.Log4jImpl-debug:26) - {pstm-100004} Executing Statement:    select distinct opsub_id, opsub_year, opsub_sem, s.sub_name, opsub_credit, o.pro_id, opsub_price, opsub_limit_people, sub_member, sub_room, pro_plan,sub_stat, op_day, op_class     from opening_subject o, subject s, professor p      where o.sub_id = s.sub_id      and o.pro_id = ?    order by 1  
+[2019-11-18 00:13:12] DEBUG (log4j.Log4jImpl-debug:26) - {pstm-100004} Parameters: [20100001]
+[2019-11-18 00:13:12] DEBUG (log4j.Log4jImpl-debug:26) - {pstm-100004} Types: [java.lang.String]
+[2019-11-18 00:13:12] DEBUG (log4j.Log4jImpl-debug:26) - {rset-100005} ResultSet
+[2019-11-18 00:13:12] DEBUG (log4j.Log4jImpl-debug:26) - {rset-100005} Header: [OPSUB_ID, OPSUB_YEAR, OPSUB_SEM, SUB_NAME, OPSUB_CREDIT, PRO_ID, OPSUB_PRICE, OPSUB_LIMIT_PEOPLE, SUB_MEMBER, SUB_ROOM, PRO_PLAN, SUB_STAT, OP_DAY, OP_CLASS]
+[2019-11-18 00:13:12] DEBUG (log4j.Log4jImpl-debug:26) - {rset-100005} Result: [001, 2019, 2, 고급C언어프로그래밍, 3, 20100001, 300000, 40, 0, 101, 고급 c언어 프로그래밍, Y, 수, 8]
+[2019-11-18 00:13:54] DEBUG (log4j.Log4jImpl-debug:26) - {conn-100006} Connection
+[2019-11-18 00:13:54] DEBUG (log4j.Log4jImpl-debug:26) - {conn-100006} Preparing Statement:    select e.emp_notice_id, e.emp_notice_name, a.admin_name, e.emp_date, e.emp_cnt, e.emp_addcontent   from emp_notice e, admin a   where e.admin_id = a.admin_id  
+[2019-11-18 00:13:54] DEBUG (log4j.Log4jImpl-debug:26) - {pstm-100007} Executing Statement:    select e.emp_notice_id, e.emp_notice_name, a.admin_name, e.emp_date, e.emp_cnt, e.emp_addcontent   from emp_notice e, admin a   where e.admin_id = a.admin_id  
+[2019-11-18 00:13:54] DEBUG (log4j.Log4jImpl-debug:26) - {pstm-100007} Parameters: []
+[2019-11-18 00:13:54] DEBUG (log4j.Log4jImpl-debug:26) - {pstm-100007} Types: []
+[2019-11-18 00:13:54] DEBUG (log4j.Log4jImpl-debug:26) - {rset-100008} ResultSet
+[2019-11-18 00:13:54] DEBUG (log4j.Log4jImpl-debug:26) - {rset-100008} Header: [EMP_NOTICE_ID, EMP_NOTICE_NAME, ADMIN_NAME, EMP_DATE, EMP_CNT, EMP_ADDCONTENT]
+[2019-11-18 00:13:54] DEBUG (log4j.Log4jImpl-debug:26) - {rset-100008} Result: [1, 대덕인재개발원 취업공고, 관리자1, 2019-11-15 10:20:14, 8, null]
+[2019-11-18 00:13:54] DEBUG (log4j.Log4jImpl-debug:26) - {rset-100008} Result: [2, 대덕인재개발원 고급자바 교수 모집, 관리자2, 2019-11-15 14:36:07, 18, null]
+[2019-11-18 00:13:56] DEBUG (log4j.Log4jImpl-debug:26) - {conn-100009} Connection
+[2019-11-18 00:13:56] DEBUG (log4j.Log4jImpl-debug:26) - {conn-100009} Preparing Statement:    update emp_notice       set emp_cnt = emp_cnt + 1    where emp_notice_id = ?  
+[2019-11-18 00:13:56] DEBUG (log4j.Log4jImpl-debug:26) - {pstm-100010} Executing Statement:    update emp_notice       set emp_cnt = emp_cnt + 1    where emp_notice_id = ?  
+[2019-11-18 00:13:56] DEBUG (log4j.Log4jImpl-debug:26) - {pstm-100010} Parameters: [2]
+[2019-11-18 00:13:56] DEBUG (log4j.Log4jImpl-debug:26) - {pstm-100010} Types: [java.lang.Integer]
+[2019-11-18 00:13:59] DEBUG (log4j.Log4jImpl-debug:26) - {conn-100011} Connection
+[2019-11-18 00:13:59] DEBUG (log4j.Log4jImpl-debug:26) - {conn-100011} Preparing Statement:    select e.emp_notice_id, a.admin_name, e.emp_notice_name, e.emp_content, e.emp_date, e.emp_cnt, e.emp_addcontent     from emp_notice e, admin a    where emp_notice_id = ?      and e.admin_id = a.admin_id  
+[2019-11-18 00:13:59] DEBUG (log4j.Log4jImpl-debug:26) - {pstm-100012} Executing Statement:    select e.emp_notice_id, a.admin_name, e.emp_notice_name, e.emp_content, e.emp_date, e.emp_cnt, e.emp_addcontent     from emp_notice e, admin a    where emp_notice_id = ?      and e.admin_id = a.admin_id  
+[2019-11-18 00:13:59] DEBUG (log4j.Log4jImpl-debug:26) - {pstm-100012} Parameters: [2]
+[2019-11-18 00:13:59] DEBUG (log4j.Log4jImpl-debug:26) - {pstm-100012} Types: [java.lang.Integer]
+[2019-11-18 00:14:00] DEBUG (log4j.Log4jImpl-debug:26) - {rset-100013} ResultSet
+[2019-11-18 00:14:00] DEBUG (log4j.Log4jImpl-debug:26) - {rset-100013} Header: [EMP_NOTICE_ID, ADMIN_NAME, EMP_NOTICE_NAME, EMP_CONTENT, EMP_DATE, EMP_CNT, EMP_ADDCONTENT]
+[2019-11-18 00:14:00] DEBUG (log4j.Log4jImpl-debug:26) - {rset-100013} Result: [2, 관리자2, 대덕인재개발원 고급자바 교수 모집, 이성엽선생님의 안식년으로 공고합니다., 2019-11-15 14:36:07, 19, null]
+[2019-11-18 00:14:03] DEBUG (log4j.Log4jImpl-debug:26) - {conn-100014} Connection
+[2019-11-18 00:14:03] DEBUG (log4j.Log4jImpl-debug:26) - {conn-100014} Preparing Statement:    select e.emp_notice_id, e.emp_notice_name, a.admin_name, e.emp_date, e.emp_cnt, e.emp_addcontent   from emp_notice e, admin a   where e.admin_id = a.admin_id  
+[2019-11-18 00:14:03] DEBUG (log4j.Log4jImpl-debug:26) - {pstm-100015} Executing Statement:    select e.emp_notice_id, e.emp_notice_name, a.admin_name, e.emp_date, e.emp_cnt, e.emp_addcontent   from emp_notice e, admin a   where e.admin_id = a.admin_id  
+[2019-11-18 00:14:03] DEBUG (log4j.Log4jImpl-debug:26) - {pstm-100015} Parameters: []
+[2019-11-18 00:14:03] DEBUG (log4j.Log4jImpl-debug:26) - {pstm-100015} Types: []
+[2019-11-18 00:14:04] DEBUG (log4j.Log4jImpl-debug:26) - {rset-100016} ResultSet
+[2019-11-18 00:14:04] DEBUG (log4j.Log4jImpl-debug:26) - {rset-100016} Header: [EMP_NOTICE_ID, EMP_NOTICE_NAME, ADMIN_NAME, EMP_DATE, EMP_CNT, EMP_ADDCONTENT]
+[2019-11-18 00:14:04] DEBUG (log4j.Log4jImpl-debug:26) - {rset-100016} Result: [1, 대덕인재개발원 취업공고, 관리자1, 2019-11-15 10:20:14, 8, null]
+[2019-11-18 00:14:04] DEBUG (log4j.Log4jImpl-debug:26) - {rset-100016} Result: [2, 대덕인재개발원 고급자바 교수 모집, 관리자2, 2019-11-15 14:36:07, 19, null]
+[2019-11-18 00:14:35] DEBUG (log4j.Log4jImpl-debug:26) - {conn-100017} Connection
+[2019-11-18 00:14:35] DEBUG (log4j.Log4jImpl-debug:26) - {conn-100017} Preparing Statement:    select emp_notice_id,              a.admin_name,                 emp_notice_name,             emp_content,             emp_date,            emp_cnt,             emp_addcontent      from emp_notice e, admin a    where e.admin_id = a.admin_id        and emp_notice_name like '%자바%'      order by emp_notice_id desc   
+[2019-11-18 00:14:35] DEBUG (log4j.Log4jImpl-debug:26) - {pstm-100018} Executing Statement:    select emp_notice_id,              a.admin_name,                 emp_notice_name,             emp_content,             emp_date,            emp_cnt,             emp_addcontent      from emp_notice e, admin a    where e.admin_id = a.admin_id        and emp_notice_name like '%자바%'      order by emp_notice_id desc   
+[2019-11-18 00:14:35] DEBUG (log4j.Log4jImpl-debug:26) - {pstm-100018} Parameters: []
+[2019-11-18 00:14:35] DEBUG (log4j.Log4jImpl-debug:26) - {pstm-100018} Types: []
+[2019-11-18 00:14:36] DEBUG (log4j.Log4jImpl-debug:26) - {rset-100019} ResultSet
+[2019-11-18 00:14:36] DEBUG (log4j.Log4jImpl-debug:26) - {rset-100019} Header: [EMP_NOTICE_ID, ADMIN_NAME, EMP_NOTICE_NAME, EMP_CONTENT, EMP_DATE, EMP_CNT, EMP_ADDCONTENT]
+[2019-11-18 00:14:36] DEBUG (log4j.Log4jImpl-debug:26) - {rset-100019} Result: [2, 관리자2, 대덕인재개발원 고급자바 교수 모집, 이성엽선생님의 안식년으로 공고합니다., 2019-11-15 14:36:07, 19, null]
+[2019-11-18 00:14:50] DEBUG (log4j.Log4jImpl-debug:26) - {conn-100020} Connection
+[2019-11-18 00:14:50] DEBUG (log4j.Log4jImpl-debug:26) - {conn-100020} Preparing Statement:    select emp_notice_id,             a.admin_name,              emp_notice_name,              emp_content,              emp_date,             emp_cnt,             emp_addcontent       from emp_notice e, admin a    where e.admin_id = a.admin_id        and a.admin_name like '%관리자1%'      order by emp_notice_id desc     
+[2019-11-18 00:14:50] DEBUG (log4j.Log4jImpl-debug:26) - {pstm-100021} Executing Statement:    select emp_notice_id,             a.admin_name,              emp_notice_name,              emp_content,              emp_date,             emp_cnt,             emp_addcontent       from emp_notice e, admin a    where e.admin_id = a.admin_id        and a.admin_name like '%관리자1%'      order by emp_notice_id desc     
+[2019-11-18 00:14:50] DEBUG (log4j.Log4jImpl-debug:26) - {pstm-100021} Parameters: []
+[2019-11-18 00:14:50] DEBUG (log4j.Log4jImpl-debug:26) - {pstm-100021} Types: []
+[2019-11-18 00:14:50] DEBUG (log4j.Log4jImpl-debug:26) - {rset-100022} ResultSet
+[2019-11-18 00:14:50] DEBUG (log4j.Log4jImpl-debug:26) - {rset-100022} Header: [EMP_NOTICE_ID, ADMIN_NAME, EMP_NOTICE_NAME, EMP_CONTENT, EMP_DATE, EMP_CNT, EMP_ADDCONTENT]
+[2019-11-18 00:14:50] DEBUG (log4j.Log4jImpl-debug:26) - {rset-100022} Result: [1, 관리자1, 대덕인재개발원 취업공고, 취업공고났어요, 2019-11-15 10:20:14, 8, null]
+[2019-11-18 00:14:55] DEBUG (log4j.Log4jImpl-debug:26) - {conn-100023} Connection
+[2019-11-18 00:14:55] DEBUG (log4j.Log4jImpl-debug:26) - {conn-100023} Preparing Statement:    select emp_notice_id,             a.admin_name,              emp_notice_name,              emp_content,              emp_date,             emp_cnt,             emp_addcontent       from emp_notice e, admin a    where e.admin_id = a.admin_id        and a.admin_name like '%관리자%'      order by emp_notice_id desc     
+[2019-11-18 00:14:55] DEBUG (log4j.Log4jImpl-debug:26) - {pstm-100024} Executing Statement:    select emp_notice_id,             a.admin_name,              emp_notice_name,              emp_content,              emp_date,             emp_cnt,             emp_addcontent       from emp_notice e, admin a    where e.admin_id = a.admin_id        and a.admin_name like '%관리자%'      order by emp_notice_id desc     
+[2019-11-18 00:14:55] DEBUG (log4j.Log4jImpl-debug:26) - {pstm-100024} Parameters: []
+[2019-11-18 00:14:55] DEBUG (log4j.Log4jImpl-debug:26) - {pstm-100024} Types: []
+[2019-11-18 00:14:56] DEBUG (log4j.Log4jImpl-debug:26) - {rset-100025} ResultSet
+[2019-11-18 00:14:56] DEBUG (log4j.Log4jImpl-debug:26) - {rset-100025} Header: [EMP_NOTICE_ID, ADMIN_NAME, EMP_NOTICE_NAME, EMP_CONTENT, EMP_DATE, EMP_CNT, EMP_ADDCONTENT]
+[2019-11-18 00:14:56] DEBUG (log4j.Log4jImpl-debug:26) - {rset-100025} Result: [2, 관리자2, 대덕인재개발원 고급자바 교수 모집, 이성엽선생님의 안식년으로 공고합니다., 2019-11-15 14:36:07, 19, null]
+[2019-11-18 00:14:56] DEBUG (log4j.Log4jImpl-debug:26) - {rset-100025} Result: [1, 관리자1, 대덕인재개발원 취업공고, 취업공고났어요, 2019-11-15 10:20:14, 8, null]
+[2019-11-18 00:19:03] DEBUG (log4j.Log4jImpl-debug:26) - {conn-100000} Connection
+[2019-11-18 00:19:03] DEBUG (log4j.Log4jImpl-debug:26) - {conn-100000} Preparing Statement:    select * from professor where pro_id = 20100001 and pro_pass = 1  
+[2019-11-18 00:19:03] DEBUG (log4j.Log4jImpl-debug:26) - {pstm-100001} Executing Statement:    select * from professor where pro_id = 20100001 and pro_pass = 1  
+[2019-11-18 00:19:03] DEBUG (log4j.Log4jImpl-debug:26) - {pstm-100001} Parameters: []
+[2019-11-18 00:19:03] DEBUG (log4j.Log4jImpl-debug:26) - {pstm-100001} Types: []
+[2019-11-18 00:19:03] DEBUG (log4j.Log4jImpl-debug:26) - {rset-100002} ResultSet
+[2019-11-18 00:19:03] DEBUG (log4j.Log4jImpl-debug:26) - {rset-100002} Header: [PRO_ID, PRO_PASS, PRO_PHOTO, PRO_NAME, MAJOR_ID, PRO_BIR, PRO_POSITION, PRO_MAIL, PRO_ADDR, PRO_CAR, PRO_EDU, PRO_LAB, PRO_APPOINTMENT_DATE, PRO_STAT, PRO_GRANT]
+[2019-11-18 00:19:03] DEBUG (log4j.Log4jImpl-debug:26) - {rset-100002} Result: [20100001, 1, null, 이성엽, 10, 1950-11-20 00:00:00, 정교수, ddoja@naver.com, 대전시 동구 용운동, null, null, 101, 2010-10-24 00:00:00, 재직, 3]
+[2019-11-18 00:19:05] DEBUG (log4j.Log4jImpl-debug:26) - {conn-100003} Connection
+[2019-11-18 00:19:05] DEBUG (log4j.Log4jImpl-debug:26) - {conn-100003} Preparing Statement:    select distinct opsub_id, opsub_year, opsub_sem, s.sub_name, opsub_credit, o.pro_id, opsub_price, opsub_limit_people, sub_member, sub_room, pro_plan,sub_stat, op_day, op_class     from opening_subject o, subject s, professor p      where o.sub_id = s.sub_id      and o.pro_id = ?    order by 1  
+[2019-11-18 00:19:05] DEBUG (log4j.Log4jImpl-debug:26) - {pstm-100004} Executing Statement:    select distinct opsub_id, opsub_year, opsub_sem, s.sub_name, opsub_credit, o.pro_id, opsub_price, opsub_limit_people, sub_member, sub_room, pro_plan,sub_stat, op_day, op_class     from opening_subject o, subject s, professor p      where o.sub_id = s.sub_id      and o.pro_id = ?    order by 1  
+[2019-11-18 00:19:05] DEBUG (log4j.Log4jImpl-debug:26) - {pstm-100004} Parameters: [20100001]
+[2019-11-18 00:19:05] DEBUG (log4j.Log4jImpl-debug:26) - {pstm-100004} Types: [java.lang.String]
+[2019-11-18 00:19:05] DEBUG (log4j.Log4jImpl-debug:26) - {rset-100005} ResultSet
+[2019-11-18 00:19:05] DEBUG (log4j.Log4jImpl-debug:26) - {rset-100005} Header: [OPSUB_ID, OPSUB_YEAR, OPSUB_SEM, SUB_NAME, OPSUB_CREDIT, PRO_ID, OPSUB_PRICE, OPSUB_LIMIT_PEOPLE, SUB_MEMBER, SUB_ROOM, PRO_PLAN, SUB_STAT, OP_DAY, OP_CLASS]
+[2019-11-18 00:19:05] DEBUG (log4j.Log4jImpl-debug:26) - {rset-100005} Result: [001, 2019, 2, 고급C언어프로그래밍, 3, 20100001, 300000, 40, 0, 101, 고급 c언어 프로그래밍, Y, 수, 8]

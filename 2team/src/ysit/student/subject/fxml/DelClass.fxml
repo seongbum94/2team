@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="636.0" prefWidth="831.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ysit.student.subject.controller.DelClassController">
+   <children>
+      <VBox prefHeight="200.0" prefWidth="100.0">
+         <children>
+            <Label text="수강신청 철회">
+               <font>
+                  <Font size="20.0" />
+               </font>
+               <padding>
+                  <Insets left="10.0" top="5.0" />
+               </padding>
+            </Label>
+         </children>
+      </VBox>
+      <TableView maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="831.0">
+         <columns>
+            <TableColumn fx:id="subNum" prefWidth="92.0" text="과목코드" />
+            <TableColumn fx:id="subName" prefWidth="248.0" text="과목명" />
+            <TableColumn fx:id="subPro" prefWidth="79.0" text="담당교수" />
+            <TableColumn fx:id="subScore" prefWidth="57.0" text="학점" />
+            <TableColumn fx:id="subDate" prefWidth="89.0" text="요일/시간" />
+            <TableColumn fx:id="subRoom" prefWidth="74.0" text="강의실" />
+            <TableColumn fx:id="subMem" prefWidth="60.0" text="신청인원" />
+            <TableColumn fx:id="limitMem" prefWidth="65.0" text="정원" />
+            <TableColumn fx:id="subDel" prefWidth="66.0" text="정정" />
+         </columns>
+      </TableView>
+   </children>
+</StackPane>

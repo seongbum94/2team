@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ysit.student.mschool.controller.RST_SCHController">
+   <children>
+      <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0">
+         <children>
+            <VBox prefHeight="58.0" prefWidth="600.0">
+               <children>
+                  <HBox prefHeight="72.0" prefWidth="600.0">
+                     <children>
+                        <Label text="신 청 :">
+                           <HBox.margin>
+                              <Insets left="50.0" top="30.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Label>
+                        <ComboBox fx:id="apply" prefWidth="150.0">
+                           <HBox.margin>
+                              <Insets left="20.0" top="30.0" />
+                           </HBox.margin>
+                        </ComboBox>
+                     </children>
+                  </HBox>
+               </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </VBox>
+            <VBox prefHeight="59.0" prefWidth="600.0">
+               <children>
+                  <HBox prefHeight="33.0" prefWidth="600.0">
+                     <children>
+                        <Label text="사 유 :">
+                           <HBox.margin>
+                              <Insets left="50.0" top="15.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Label>
+                        <ComboBox fx:id="reason" prefWidth="150.0">
+                           <HBox.margin>
+                              <Insets left="20.0" top="15.0" />
+                           </HBox.margin>
+                        </ComboBox>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <VBox prefHeight="58.0" prefWidth="600.0">
+               <children>
+                  <HBox prefHeight="70.0" prefWidth="600.0">
+                     <children>
+                        <Label text="일 자 :">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="50.0" />
+                           </HBox.margin>
+                        </Label>
+                        <ComboBox fx:id="date" prefWidth="150.0">
+                           <HBox.margin>
+                              <Insets left="20.0" />
+                           </HBox.margin>
+                        </ComboBox>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <VBox prefHeight="143.0" prefWidth="500.0">
+               <VBox.margin>
+                  <Insets left="50.0" right="50.0" />
+               </VBox.margin>
+               <children>
+                  <TextArea fx:id="textArea" prefHeight="144.0" prefWidth="500.0" promptText="텍스트를 입력하세요." />
+               </children>
+            </VBox>
+            <HBox prefHeight="70.0" prefWidth="600.0">
+               <children>
+                  <Button fx:id="btnSbmt" mnemonicParsing="false" onAction="#sbmtOnClick" prefWidth="100.0" text="제출">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="180.0" top="20.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="btnupdt" mnemonicParsing="false" onAction="#updtOnClick" prefWidth="100.0" text="수정">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="50.0" top="20.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</StackPane>

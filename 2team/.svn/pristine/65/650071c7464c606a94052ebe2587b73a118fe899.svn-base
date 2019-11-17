@@ -1,0 +1,38 @@
+package ysit.professor.counsel.service;
+
+import java.time.LocalDate;
+import java.util.List;
+
+import ysit.professor.counsel.dao.CounselDaoImpl;
+import ysit.professor.counsel.dao.ICounselDao;
+import ysit.vo.CounselVO;
+
+public class CounselServiceImpl implements ICounselService {
+	private static CounselServiceImpl service;
+	private ICounselDao dao;
+	
+	private CounselServiceImpl() {
+		dao = CounselDaoImpl.getInstance();
+	}
+	
+	public static CounselServiceImpl getInstance() {
+		if(service == null) service = new CounselServiceImpl();
+		return service;
+	}
+
+	@Override
+	public List<CounselVO> getCounselList(String pro_id) {
+		return dao.getCounselList(pro_id);
+	}
+
+	@Override
+	public void changeConsent(CounselVO counsel) {
+		dao.changeConsent(counsel);
+	}
+
+	@Override
+	public List<CounselVO> searchCounsel(CounselVO counsel) {
+		return dao.searchCounsel(counsel);
+	}
+
+}
